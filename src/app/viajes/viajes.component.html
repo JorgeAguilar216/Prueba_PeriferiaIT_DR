@@ -1,0 +1,48 @@
+<div class="container">
+    <div class="row mb-3">
+        <div class="jumbotron py-3">
+            <h1 class="display-4 text-center">Registro de viajes Entregado S.A.S.</h1>
+        </div>
+        <div class="col-6">
+            <button type="button" class="btn btn-outline-primary btn-space">
+                <a href="http://localhost:4200/prueba" style="color:inherit">Empleados</a>
+            </button>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <app-viajes-form></app-viajes-form>
+    </div>
+    <div class="col-md-6">
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th>Nombre Empleado</th>
+                    <th>Origen</th>
+                    <th>Destino</th>
+                    <th>Tiempo de Viaje</th>
+                    <th>Nombre de Pasajero</th>
+                    <th>Vehiculo</th>
+                    <th>Hora de Viaje</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let pd of service.list; let index_item=index">
+                    <td (click)="populateForm(pd)">{{service.nombresEmp[index_item] + " " +service.apellidosEmp[index_item]}}</td>
+                    <td (click)="populateForm(pd)">{{pd.origen}}</td>
+                    <td (click)="populateForm(pd)">{{pd.destino}}</td>
+                    <td (click)="populateForm(pd)">{{pd.tiempoViaje}}</td>
+                    <td (click)="populateForm(pd)">{{pd.nombrePasajero}}</td>
+                    <td (click)="populateForm(pd)">{{pd.vehiculo}}</td>
+                    <td (click)="populateForm(pd)">{{pd.horaViaje}}</td>
+                    <td>
+                        <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.viajesID)"></i>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

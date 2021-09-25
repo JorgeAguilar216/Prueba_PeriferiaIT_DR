@@ -1,0 +1,40 @@
+<div class="container">
+  <div class="row mb-3">
+      <div class="jumbotron py-3">
+          <h1 class="display-4 text-center">Registro de viajes Entregado S.A.S.</h1>
+      </div>
+      <div class="col-6">
+          <button type="button" class="btn btn-outline-primary btn-space">
+              <a href="http://localhost:4200" style="color:inherit">Empleados</a>
+          </button>
+      </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-6">
+    <app-empleados-form></app-empleados-form>
+  </div>
+  <div class="col-md-6">
+    <table class="table">
+      <thead class="thead-light">
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Identificacion</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pd of service.list">
+          <td (click)="populateForm(pd)">{{pd.nombre}}</td>
+          <td (click)="populateForm(pd)">{{pd.apellido}}</td>
+          <td (click)="populateForm(pd)">{{pd.identificacion}}</td>
+          <td>
+            <i class="far fa-trash-alt fa-lg text-danger" (click)="onDelete(pd.empleadosID)"></i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

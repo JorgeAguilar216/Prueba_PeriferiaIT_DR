@@ -1,0 +1,59 @@
+<form novalidate autocomplete="off" #form="ngForm" (submit)="onSubmit(form)">
+    <input type="hidden" name="viajesID"
+    [value]="service.formData.viajesID" />
+    <div class="form-group">
+        <label>NOMBRE EMPLEADO</label>
+        <select class="form-control" placeholder="ID Empleado"
+        name="empleadosID" #empleadosID="ngModel" [(ngModel)]="service.formData.empleadosID"
+        (change)="onChange(service.formData.empleadosID)">
+        <option [value]="dato.empleadosID" *ngFor="let dato of service.listEmp">
+            {{dato.nombre + " " + dato.apellido }}
+        </option></select>
+    </div>
+    
+    <div class="form-group">
+        <label>ORIGEN</label>
+        <input class="form-control form-control-lg" placeholder="Ciudad de origen"
+        name="origen" #origen="ngModel" [(ngModel)]="service.formData.origen"
+        required>
+    </div>
+
+    <div class="form-group">
+        <label>DESTINO</label>
+        <input class="form-control form-control-lg" placeholder="Ciudad de destino"
+        name="destino" #destino="ngModel" [(ngModel)]="service.formData.destino"
+        required>
+    </div>
+
+    <div class="form-group">
+        <label>TTIEMPO DE VIAJE</label>
+        <input class="form-control form-control-lg" placeholder="En horas"
+        name="tiempoViaje" #tiempoViaje="ngModel" [(ngModel)]="service.formData.tiempoViaje"
+        required>
+    </div>
+
+    <div class="form-group">
+        <label>NOMBRE DEL PASAJERO</label>
+        <input class="form-control form-control-lg" placeholder="Nombre del pasajero"
+        name="nombrePasajero" #nombrePasajero="ngModel" [(ngModel)]="service.formData.nombrePasajero"
+        required>
+    </div>
+
+    <div class="form-group">
+        <label>NUMERO VEHICULO</label>
+        <input class="form-control form-control-lg" placeholder="Numero del vehiculo"
+        name="vehiculo" #vehiculo="ngModel" [(ngModel)]="service.formData.vehiculo"
+        required>
+    </div>
+
+    <div class="form-group">
+        <label>HORA DEL VIAJE</label>
+        <input class="form-control form-control-lg" placeholder="hh:mm:ss"
+        name="horaViaje" #horaViaje="ngModel" [(ngModel)]="service.formData.horaViaje"
+        required>
+    </div>
+
+    <div class="form-group">
+        <button class="btn btn-info btn-lg btn-block" type="submit" [disabled]="form.invalid">ENVIAR</button>
+    </div>
+</form>
